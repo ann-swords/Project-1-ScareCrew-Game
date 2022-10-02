@@ -1,3 +1,75 @@
 body{
-    background-color: aquamarine;
+    background-image: url('Images\Picture3.jpg');
+}
+
+.div-title{
+    border: 2px solid red;
+    padding-left: 30%;
+}
+
+#p-game-title{
+    font-family: 'Games', sans-serif;                                        
+    font-size: 40px;
+    
+}
+
+/* .guessed-word{
+    border: 2px solid green;
+    width: 40%;
+    height: 90px;
+    
+}
+
+.snow-man{
+    border: 2px solid blue;
+    width: 20%;
+    height: 90px;
+    margin: 30px;
+    margin-right: 10px;
+
+} */
+
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  #col2{
+    float: left;
+    width: 65%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    margin: 10px;
+  }
+  #col1{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    margin: 10px;
+  }
+
+.letter{
+    position: absolute;
+width: 222px;
+height: 220px;
+}
+
+.black{
+    position: absolute;
+width: 222px;
+height: 203px;
+
+background: #000000;
+}
+
+.gold{
+    position: absolute;
+width: 191px;
+height: 188px;
+
+background: #E79C21;
 }
