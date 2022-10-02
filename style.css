@@ -1,33 +1,27 @@
 body{
-    background-image: url('Images\Picture3.jpg');
+    background-image: url('../Images/Picture3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-.div-title{
-    border: 2px solid red;
-    padding-left: 30%;
-}
 
 #p-game-title{
-    font-family: 'Games', sans-serif;                                        
-    font-size: 40px;
+    font-family: 'Creepster', cursive;                                   
+    font-size: 50px;
+    color: #E79C21;
+    padding-left: 34%;
+   
     
 }
 
-/* .guessed-word{
+.guessed-word{
     border: 2px solid green;
     width: 40%;
     height: 90px;
     
 }
-
-.snow-man{
-    border: 2px solid blue;
-    width: 20%;
-    height: 90px;
-    margin: 30px;
-    margin-right: 10px;
-
-} */
 
   
   /* Clear floats after the columns */
@@ -41,35 +35,32 @@ body{
     float: left;
     width: 65%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    height: 20px;
     margin: 10px;
   }
   #col1{
     float: left;
-    width: 20%;
+    width: 15%;
     padding: 10px;
     height: 300px; /* Should be removed. Only for demonstration */
     margin: 10px;
   }
 
-.letter{
+.keybored{
+
     position: absolute;
-width: 222px;
-height: 220px;
+    width: 570px;
+    /* height: 90px; */
+    padding: 200px 0px 0 420px;
 }
+.btn{
+    background-image: url('../Images/letter box.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
-.black{
-    position: absolute;
-width: 222px;
-height: 203px;
+    width: 60px;
+    height: 60px;
+    margin: 2px;
 
-background: #000000;
-}
-
-.gold{
-    position: absolute;
-width: 191px;
-height: 188px;
-
-background: #E79C21;
 }
