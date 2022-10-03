@@ -7,16 +7,17 @@ let keybored = document.querySelectorAll('.btn')
 let gussedLetterDiv = document.querySelector('.guessed-word')
 
 
+
+
 //A fucntion that generates a radnom word from the array and returns the word splitted into a new array of it's letters.
 function randomWordGenerator(){
     let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)]
     console.log(generatedWord) 
-
+    
     let seperatedWord = generatedWord.split('')
     console.log(seperatedWord)
     return seperatedWord 
 }
-
 
 
 
@@ -30,26 +31,33 @@ function addRandomWordOnSCreen () {
         
         //then generate a new paragraph to add inside the div
         let newLetterInsideDiv = document.createElement('p')
+        newLetterInsideDiv.className = 'actual-letter'
         newLetterInsideDiv.innerText = letter
         newDivForLetter.appendChild(newLetterInsideDiv)
         
         newLetterInsideDiv.style.display = "none"
+       console.log(newLetterInsideDiv.innerText)
+
+
     })
 }
-addRandomWordOnSCreen ()
+addRandomWordOnSCreen()
 
 
 
-//Function that prints out the letters from the keybored on screen.
-keybored.forEach((element) =>{
 
-    let print = () =>{
-        alphabet = element.innerHTML
-        console.log(alphabet)
+
+     //Function that prints out the letters from the keybored on screen.
+     keybored.forEach((element) =>{
+     
+         let print = () =>{
+             alphabet = element.innerText
+             console.log(alphabet)
+             return alphabet
+         }
+         
+         element.addEventListener('click', print)
     }
-  
-    element.addEventListener('click', print)
-}
-)
-
-
+    )
+        
+        
