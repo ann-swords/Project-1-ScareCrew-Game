@@ -26,10 +26,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 /* letters on screen created by generating a new div */
 .letter-div{
-    margin: 5px;
+    margin: 10px;
     height: 30px;
     width: 30px;
-    border: 2px solid red;
+    border-bottom: 5px solid red;
     /* text */
     color: white;
     font-family: 'Press Start 2P', cursive;
