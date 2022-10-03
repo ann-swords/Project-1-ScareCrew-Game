@@ -1,1 +1,1 @@
-# Project-1-Game
+# Project-1-Hangman game "spooky edition!"
