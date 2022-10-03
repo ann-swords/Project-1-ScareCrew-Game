@@ -4,14 +4,16 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    color: white;
 }
 
 
 #p-game-title{
+    display: inline-block;
     font-family: 'Creepster', cursive;                                   
     font-size: 50px;
     color: #E79C21;
-    padding-left: 34%;
+    padding-left: 15%;
    
     
 }
@@ -22,13 +24,15 @@ body{
     height: 90px;
     
 }
+  .scarecrow-div{
+    float: left;
+    width: 20%;
+    padding: 5px;
+    height: 520px; /* Should be removed. Only for demonstration */
+    margin-top: 130px;
+    
 
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+    background-color: rgb(194, 194, 194,  0.3);
   }
 
   #col2{
@@ -38,29 +42,53 @@ body{
     height: 20px;
     margin: 10px;
   }
-  #col1{
-    float: left;
-    width: 15%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-    margin: 10px;
-  }
 
 .keybored{
-
     position: absolute;
-    width: 570px;
-    /* height: 90px; */
-    padding: 200px 0px 0 420px;
+    display: inline-block;
+    right: 30%;
+    top: 63%;
+    padding: 25px;
+    
+
+    
 }
+
+.frist-row-letters{
+    display: flex;
+    align-items: center;
+}
+
+.second-row-letters{
+    margin-left: 20px;
+}
+
+.third-row-letters{
+    margin-left: 80px;
+}
+
 .btn{
+    /* Background */
     background-image: url('../Images/letter box.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
+    /* Size */
     width: 60px;
     height: 60px;
     margin: 2px;
 
+    /* Text */
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px
+
+}
+
+/* Scarecrew Image */
+
+#scarecrew-stick{
+    margin-top: 45px;
+    margin-left: 110px;
 }
