@@ -23,10 +23,17 @@ function randomWordGenerator(){
 //Function that adds the random generated word on the screen
 function addRandomWordOnSCreen () {
     randomWordGenerator().forEach((letter) =>{
-        let newDivLetter = document.createElement('div')
-        newDivLetter.className = 'letter-div'
-        newDivLetter.innerText = letter
-        gussedLetterDiv.appendChild(newDivLetter)
+        //first generate a new div for each letter
+        let newDivForLetter = document.createElement('div')
+        newDivForLetter.className = 'letter-div'
+        gussedLetterDiv.appendChild(newDivForLetter)
+        
+        //then generate a new paragraph to add inside the div
+        let newLetterInsideDiv = document.createElement('p')
+        newLetterInsideDiv.innerText = letter
+        newDivForLetter.appendChild(newLetterInsideDiv)
+        
+        newLetterInsideDiv.style.display = "none"
     })
 }
 addRandomWordOnSCreen ()
