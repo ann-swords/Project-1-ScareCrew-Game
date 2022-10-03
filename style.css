@@ -6,6 +6,7 @@ body{
     background-position: center;
     color: white;
 }
+html, body {margin: 0; height: 100%; overflow: hidden}
 
 
 #p-game-title{
@@ -14,44 +15,42 @@ body{
     font-size: 50px;
     color: #E79C21;
     padding-left: 15%;
-   
-    
 }
 
 .guessed-word{
-    border: 2px solid green;
-    width: 40%;
-    height: 90px;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
 }
-  .scarecrow-div{
-    float: left;
-    width: 20%;
-    padding: 5px;
-    height: 520px; /* Should be removed. Only for demonstration */
-    margin-top: 130px;
-    
 
-    background-color: rgb(194, 194, 194,  0.3);
-  }
+/* letters on screen created by generating a new div */
+.letter-div{
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    border: 2px solid red;
+    /* text */
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+}
 
-  #col2{
+
+#col2{
     float: left;
     width: 65%;
     padding: 10px;
     height: 20px;
     margin: 10px;
-  }
+}
 
 .keybored{
     position: absolute;
     display: inline-block;
-    right: 30%;
-    top: 63%;
+    right: 27%;
+    top: 60%;
     padding: 25px;
-    
-
-    
 }
 
 .frist-row-letters{
@@ -73,22 +72,94 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
+    
     /* Size */
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     margin: 2px;
-
+    
     /* Text */
     color: white;
     font-family: 'Press Start 2P', cursive;
     font-size: 25px
-
+    
 }
 
-/* Scarecrew Image */
+/* Scarecrew Image div */
+.scarecrow-div{
+  float: left;
+  width: 20%;
+  padding: 5px;
+  height: 520px; /* Should be removed. Only for demonstration */
+  
+  
+
+  background-color: rgb(194, 194, 194,  0.3);
+}
+
+
+/* Scarecrew Images */
 
 #scarecrew-stick{
-    margin-top: 45px;
-    margin-left: 110px;
+    position: relative;
+    height: 80%;
+    top: 100px;
+    left: 110px;
+ 
 }
+
+#scarecrew-body{
+    position: relative;
+    width: 65%;
+    bottom: 35px;
+    left: 0;
+}
+
+#scarecrew-right-arm{
+    position: relative;
+    height: 13%;
+    left: 170px;
+    bottom: 200px;
+   
+}
+
+#scarecrew-left-arm{
+    position: relative;
+    height: 13%;
+    right: 170px;
+    bottom: 200px;
+   
+    
+}
+
+#scarecrew-head{
+    position: relative;
+    height: 20%;
+    bottom: 410px;
+    left: 50px;
+    
+}
+
+#scarecrew-hat{
+    position: relative;
+    height: 15%;
+    bottom: 600px;
+    left: 50px;
+ 
+}
+
+#scarecrew-skull-right{
+    position: relative;
+    height: 20%;
+    bottom: 350px;
+    left: 85px;
+    
+}
+
+#scarecrew-skull-left{
+    position: relative;
+    height: 20%;
+    bottom: 350px;
+    right: 200px;
+}
+
