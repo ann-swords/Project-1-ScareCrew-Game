@@ -21,18 +21,9 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-  
 }
 
-/* letters on screen created by generating a new div
-.letter-div{
-    margin: 10px;
-    height: 30px;
-    width: 30px;
-    border-bottom: 5px solid rgb(255, 242, 242);
-   
-} */
+
 .actual-letter{
  /* text */
  color: white;
@@ -44,12 +35,13 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 #col2{
     float: left;
-    width: 65%;
+    width: 50%;
     padding: 10px;
     height: 20px;
-    margin: 10px;
 }
 
+
+/* ----------Keybored on Screen Buttons--------------- */
 .keybored{
     position: absolute;
     display: inline-block;
@@ -90,7 +82,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     
 }
 
-/* Scarecrew Image div */
+
+
+/* -------------Scarecrew Image div---------*/
+
 .scarecrow-div{
   float: left;
   width: 22%;
@@ -101,7 +96,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 
-/* Scarecrew Images */
+/* Scarecrew Images: */
 
 #scarecrew-stick{
     position: relative;
