@@ -21,18 +21,18 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+
   
 }
 
-/* letters on screen created by generating a new div */
+/* letters on screen created by generating a new div
 .letter-div{
     margin: 10px;
     height: 30px;
     width: 30px;
     border-bottom: 5px solid rgb(255, 242, 242);
    
-}
+} */
 .actual-letter{
  /* text */
  color: white;
@@ -108,6 +108,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 80%;
     top: 120px;
     left: 130px;
+    /* display: none; */
  
 }
 
@@ -116,6 +117,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     width: 60%;
     bottom: 25px;
     left: 20px;
+    /* display: none; */
 }
 
 #scarecrew-right-arm{
@@ -123,6 +125,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 13%;
     left: 205px;
     bottom: 200px;
+    /* display: none; */
    
 }
 
@@ -131,6 +134,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 13%;
     right: 145px;
     bottom: 200px;
+    /* display: none; */
    
     
 }
@@ -140,6 +144,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 20%;
     bottom: 410px;
     left: 70px;
+    /* display: none; */
     
 }
 
@@ -148,6 +153,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 16%;
     bottom: 490px;
     right: 70px;
+    /* display: none; */
  
 }
 
@@ -156,6 +162,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 20%;
     bottom: 350px;
     left: 6px;
+    /* display: none; */
     
 }
 
@@ -164,6 +171,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 20%;
     bottom: 350px;
     left: 180px;
+    /* display: none; */
     
 }
 
