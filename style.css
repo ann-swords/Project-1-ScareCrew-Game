@@ -21,6 +21,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
   
 }
 

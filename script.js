@@ -1,63 +1,63 @@
-//Initilizing variables:
+//*Initilizing variables:
 let alphabet = ''
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
-//calling the elements:
-let keybored = document.querySelectorAll('.btn')
+//Generates one random word from the array and turn it to upperCase.
+let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
+console.log(generatedWord) 
+
+//Split the word into letters and store it in an array.
+let seperatedWord = generatedWord.split('')
+console.log(seperatedWord) 
+
+//*Calling the elements:
+//keybored --> calls the div where the buttons are placed
+let keybored = document.querySelector('.keybored')
 let gussedLetterDiv = document.querySelector('.guessed-word')
 
 
-
-
-//A fucntion that generates a radnom word from the array and returns the word splitted into a new array of it's letters.
-function randomWordGenerator(){
-    let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)]
-    console.log(generatedWord) 
-    
-    let seperatedWord = generatedWord.split('')
-    console.log(seperatedWord)
-    return seperatedWord 
-}
-
-
+// ------------------------------------------------------------------------
+//Functions:
 
 //Function that adds the random generated word on the screen
-function addRandomWordOnSCreen () {
-    randomWordGenerator().forEach((letter) =>{
-        //first generate a new div for each letter
-        let newDivForLetter = document.createElement('div')
-        newDivForLetter.className = 'letter-div'
-        gussedLetterDiv.appendChild(newDivForLetter)
+// randomWordGenerator().forEach((letter) =>{
+
+//         let newDivForLetter = document.createElement('div')
+//         //first generate a new div for each letter
+//         newDivForLetter.className = 'letter-div'
+//         gussedLetterDiv.appendChild(newDivForLetter)
         
-        //then generate a new paragraph to add inside the div
-        let newLetterInsideDiv = document.createElement('p')
-        newLetterInsideDiv.className = 'actual-letter'
-        newLetterInsideDiv.innerText = letter
-        newDivForLetter.appendChild(newLetterInsideDiv)
+//         //then generate a new paragraph to add inside the div
+//         let newLetterInsideDiv = document.createElement('p')
+//         newLetterInsideDiv.className = 'actual-letter'
+//         newLetterInsideDiv.innerText = letter
+//         newDivForLetter.appendChild(newLetterInsideDiv)
         
-        newLetterInsideDiv.style.display = "none"
-       console.log(newLetterInsideDiv.innerText)
+//         newLetterInsideDiv.style.display = "none"
+
+//         //if statement to compare user input to each letter
+//         //if true: 1- newLetterInsideDiv.style.display = ""
+//         //2- change the color of button to green
+//         //if false:
+//         //turn text color red
+//         //remove one part from the scarecrow
+//     })
 
 
-    })
-}
-addRandomWordOnSCreen()
+    function compare(letter){
+        alphabet = letter.target.innerText
 
+        seperatedWord.forEach((letterInWord)=>{
 
+            if(alphabet === letterInWord){
+                console.log("comparing works!")
+            }
 
+        })
 
-
-     //Function that prints out the letters from the keybored on screen.
-     keybored.forEach((element) =>{
-     
-         let print = () =>{
-             alphabet = element.innerText
-             console.log(alphabet)
-             return alphabet
-         }
-         
-         element.addEventListener('click', print)
     }
-    )
+
+   //Make the keybored clickable
+   keybored.addEventListener('click', compare)
         
-        
+
