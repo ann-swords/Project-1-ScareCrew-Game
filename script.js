@@ -1,7 +1,8 @@
 //*Initilizing variables:
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
-// let alphabet = ''
+//It counts number of times user clicked on wrong button
+let count = 0
 
 //Generates one random word from the array and turn it to upperCase.
 let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
@@ -17,9 +18,7 @@ let keybored = document.querySelector('.keybored')
 let gussedLetterDiv = document.querySelector('.guessed-word')
 
 
-//------------------------------------------------------------------------
-let wordDivs = []
-
+//------------------------------------------------------------------------------------------------------------------
 
 //Functions:
 
@@ -39,21 +38,20 @@ let wordDivs = []
     })
 
     //Initilize more variables:
-
-    //It counts number of times user clicked on wrong button
-    let count = 0
+    
 
     function compare(letter) {
     
         //The letter from the user input when they press a button:
         let alphabet = letter.target.innerHTML
 
+        //Comparing the user input letter and adding only the right letter on screen:
         seperatedWord.forEach((letterInWord, index) => {
             let wordDiv = document.getElementById(`${index}`)
                
             if (letterInWord === alphabet){
                 wordDiv.innerText = alphabet
-                letter.target.style.color = 'green'
+                letter.target.style.color = 'green' //Change color to gree when presssed on the right letter.
                 
             }
             
@@ -62,8 +60,6 @@ let wordDivs = []
                 
             }
            
-             
-
         })
     }
     
@@ -73,6 +69,6 @@ keybored.addEventListener('click', compare)
 
 
 //Things to do:
-//compare user input with the exact letter position! --> stuck on that
-//if true, change alphabet color to green , then disable the button
-//if false, change alphabet color to red, then show one scarecrow part, and disable button.
+//compare user input with the exact letter position! --> DONE
+//if true, change alphabet color to green , then disable the button --> KINDA DONE 
+//if false, change alphabet color to red, then show one scarecrow part, and disable button. --> NOT DONE :(
