@@ -36,6 +36,7 @@ let modelMsg = document.getElementById("model-msg")
 //Music elements:
 let soundEffects = new Audio('../music/sound-effect.mp3')
 let backgroundMusic = new Audio('../music/haunted-house.mp3')
+let loseMusic = new Audio('../music/boo-and-laugh.mp3')
 soundEffects.volume = 0.12
 backgroundMusic.volume = 0.1
 
@@ -149,19 +150,30 @@ span.onclick = function() {
             //message game over!!!!!!!!!!!!
             // When the user loses, the model wil be opned
             stopGame = true
+            loseMusic.play()
             modal.style.display = "block";
-            modelMsg.innerText = `Game Over! You Lost! The word is ${guessedWord}`
+            backgroundMusic.pause()
+            modelMsg.innerText = `Game Over! You Lost! The word is \n ${guessedWord}`
+            //styling
+            modelMsg.style.color = 'rgba(133, 21, 21, 0.895)'
             modal.style.backgroundImage = "url('../Images/jumpScare.jpg')"
             console.log("You lost")
-            backgroundMusic.pause()
         }
         
         //Players Wins
         if(countWin === seperatedWord.length){
             stopGame = true
+            backgroundMusic.pause()
             modal.style.display = "block";
-            modelMsg.innerHTML = `You Won! The word is \n ${guessedWord}`
-
+            modelMsg.innerHTML = `Congrats! You Won! You guessed \n ${guessedWord}`
+            // styling
+            modelMsg.style.color = ' #6b5b95'
+            modal.style.backgroundImage = "url('../Images/win-background.png')"
+            modal.style.backgroundSize =' cover'
+            modal.style.backgroundRepeat = no-'repeat'
+            modal.style.backgroundAttachment =' fixed'
+            modal.style.backgroundPosition = 'center'
+            modal.style.backgroundColor = 'rgba(0,0,0,0.4)' 
             console.log("You won")
         }
         
@@ -247,13 +259,14 @@ span.onclick = function() {
 
     playAgain = () => {
         modal.style.display = "none";
+        backgroundMusic.play()
+        loseMusic.pause()
         restartVariables()
         disableImages()
         clearLetterDivs()
         generateRandomWordAgain()
         generateRandomWords()
-        changeKeyboredColor()
-        // startingAgain() 
+        changeKeyboredColor() 
         // console.log("is it working?")
     }
 
