@@ -75,14 +75,13 @@ let leftSkullImg = document.getElementById('scarecrew-skull-left')
             letter.target.style.color = 'red'
             count++
             console.log(count)
-
             //function to show sarecrow
             showScareCrew() 
         }
 
         //player Loses!
         if(count === 8){
-           alert("YOU LOST LMAO!")
+            alert("YOU LOST LMAO!")
             //message game over!!!!!!!!!!!!
             console.log("game over")
         }
@@ -96,7 +95,7 @@ let leftSkullImg = document.getElementById('scarecrew-skull-left')
 
     }
 
-    //Show Scarecrow body parts one by one:
+    //Function that shows Scarecrow body parts one by one:
     showScareCrew = () => {
         if (count === 1) {
             stickImg.style.display = 'block'
@@ -122,7 +121,6 @@ let leftSkullImg = document.getElementById('scarecrew-skull-left')
         else if (count === 8){
             rightSkullImg.style.display = 'block'
         }
-        
     }
     
 
@@ -132,5 +130,5 @@ keybored.addEventListener('click', compare)
 
 //Things to do:
 //compare user input with the exact letter position! --> DONE
-//if true, change alphabet color to green , then disable the button --> KINDA DONE 
-//if false, change alphabet color to red, then show one scarecrow part, and disable button. --> NOT DONE :(
+//if true, change alphabet color to green , then disable the button --> DONE
+//if false, change alphabet color to red, then show one scarecrow part, and disable button. -->  DONE :)
