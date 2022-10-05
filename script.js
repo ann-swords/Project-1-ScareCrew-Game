@@ -52,15 +52,28 @@ let gussedLetterDiv = document.querySelector('.guessed-word')
             if (letterInWord === alphabet){
                 wordDiv.innerText = alphabet
                 letter.target.style.color = 'green' //Change color to gree when presssed on the right letter.
-                
+            //Add a message that playe has won!
             }
             
-            else{
-                // letter.target.style.color = 'red'
-                
-            }
-           
         })
+
+        //Checks if user entered a wrong letter
+        if (!seperatedWord.includes(alphabet)){
+            letter.target.style.color = 'red'
+            count++
+            console.log(count)
+
+        }
+
+        //player Wins!
+        if(count === 8){
+           alert("YOU LOST LMAO!")
+            //message game over!!!!!!!!!!!!
+            console.log("game over")
+        }
+
+
+
     }
     
 
