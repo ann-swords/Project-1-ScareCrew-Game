@@ -1,7 +1,7 @@
 //------------------Initilizing variables:---------------------------------------------------------
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
-//It counts number of times user clicked on wrong button
+//It counts number of times user clicked on wrong button letter, and right button letter
 let count = 0, countWin = 0
 
 //Generates one random word from the array and turn it to upperCase.
@@ -26,10 +26,32 @@ let headImg = document.getElementById('scarecrew-head')
 let hatImg = document.getElementById('scarecrew-hat')
 let rightSkullImg = document.getElementById('scarecrew-skull-right')
 let leftSkullImg = document.getElementById('scarecrew-skull-left')
+// The model elements:
+let modal = document.getElementById("myModal")
+let span = document.getElementsByClassName("close")[0] //Get the <span> element that closes the modal
+let restartBtn = document.getElementById("restart")
+let modelMsg = document.getElementById("model-msg")
 
 
 //------------------------------------------------------------------------------------------------------------------
 
+// ------------------------------------------adding model -------------------------------------
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+//-----------------------------------------------------------------------------------------------------------------
+
+let stopGame = false
 //Functions:
 
     //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
@@ -46,50 +68,74 @@ let leftSkullImg = document.getElementById('scarecrew-skull-left')
             newDivForLetter.style.fontFamily = "'Press Start 2P', cursive"
             gussedLetterDiv.appendChild(newDivForLetter)
     })
-
-    //Initilize more variables:
     
+
+    //returns the clicked letters!
+    let includedLetters = []
 
     function compare(letter) {
-    
         //The letter from the user input when they press a button:
         let alphabet = letter.target.innerHTML
+
+
+        if(includedLetters.includes(alphabet)){
+            return 
+        }
+
+        //Disables clicking on the keybored after game is ended!
+        if(stopGame){
+            return
+        }
 
         //Comparing the user input letter and adding only the right letter on screen:
         seperatedWord.forEach((letterInWord, index) => {
             let wordDiv = document.getElementById(`${index}`)
-               
+           
             //checks if user guessed right letters
             if (letterInWord === alphabet){
                 wordDiv.innerText = alphabet
                 letter.target.style.color = 'green' //Change color to green when presssed on the right letter.
                 countWin++
+        
+                includedLetters.push(alphabet)
+                // console.log(includedLetters)
+            }
+            else if(!letterInWord.includes(alphabet)){
+                includedLetters.push(alphabet)
+                console.log(includedLetters)
             }
             
         })
 
-
+        //The word to be  guessed:
+        let guessedWord = seperatedWord.join('')
 
         //Checks if user entered a wrong letter
         if (!seperatedWord.includes(alphabet)){
             letter.target.style.color = 'red'
             count++
             console.log(count)
+
             //function to show sarecrow
-            showScareCrew() 
+            showScareCrew()
         }
 
         //player Loses!
         if(count === 8){
-            alert("YOU LOST LMAO!")
             //message game over!!!!!!!!!!!!
-            console.log("game over")
+            // When the user loses, the model wil be opned
+            stopGame = true
+            modal.style.display = "block";
+            modelMsg.innerText = `Game Over! The word is ${guessedWord}`
+            console.log("You lost")
         }
         
         //Players Wins
-         if(countWin === seperatedWord.length){
-            let guessedWord = seperatedWord.join('')
-            alert(`YOU Won Congrats :) You guessed the word: ${guessedWord}`)
+        if(countWin === seperatedWord.length){
+            stopGame = true
+            modal.style.display = "block";
+            modelMsg.innerText = `You Won! The word is ${guessedWord}`
+            console.log("You won")
         }
         
 
@@ -122,7 +168,7 @@ let leftSkullImg = document.getElementById('scarecrew-skull-left')
             rightSkullImg.style.display = 'block'
         }
     }
-    
+
 
 //add event listen to keybored to make the letters clickable.
 keybored.addEventListener('click', compare)
@@ -132,3 +178,4 @@ keybored.addEventListener('click', compare)
 //compare user input with the exact letter position! --> DONE
 //if true, change alphabet color to green , then disable the button --> DONE
 //if false, change alphabet color to red, then show one scarecrow part, and disable button. -->  DONE :)
+
