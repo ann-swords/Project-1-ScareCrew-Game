@@ -69,7 +69,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+    /* cursor: pointer */
     /* Size */
     width: 55px;
     height: 55px;

@@ -16,6 +16,8 @@ console.log(seperatedWord)
 
 //keybored --> calls the div where the buttons are placed
 let keybored = document.querySelector('.keybored')
+//btnLetters --> calls each button
+let btnLetters = document.querySelectorAll('.btn')
 let gussedLetterDiv = document.querySelector('.guessed-word')
 //The Scarecrow body parts Images:
 let stickImg = document.getElementById('scarecrew-stick')
@@ -31,6 +33,11 @@ let modal = document.getElementById("myModal")
 let span = document.getElementsByClassName("close")[0] //Get the <span> element that closes the modal
 let restartBtn = document.getElementById("restart")
 let modelMsg = document.getElementById("model-msg")
+//Music elements:
+let soundEffects = new Audio('../music/sound-effect.mp3')
+let backgroundMusic = new Audio('../music/haunted-house.mp3')
+soundEffects.volume = 0.12
+backgroundMusic.volume = 0.1
 
 
 //------------------------------------------------------------------------------------------------------------------
@@ -48,10 +55,20 @@ span.onclick = function() {
 //   }
 // }
 //-----------------------------------------------------------------------------------------------------------------
+// //try:
 
+// for (let i = 0; i < btnLetters.length; i++) {
+//     btnLetters[i].addEventListener('click', compare)
+    
+// }
+
+
+//-----------------------------------------------------
 //Functions:
 
+
     function onStartGame(){
+        // backgroundMusic.play()
          //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
         seperatedWord.forEach((letter, index) =>{
         
@@ -65,6 +82,7 @@ span.onclick = function() {
         //Text styling:
         newDivForLetter.style.fontFamily = "'Press Start 2P', cursive"
         gussedLetterDiv.appendChild(newDivForLetter)
+        // console.log("hellooo")
         })
     }
    
@@ -79,7 +97,9 @@ span.onclick = function() {
 
 
 
+
     function compare(letter) {
+
         //The letter from the user input when they press a button:
         let alphabet = letter.target.innerHTML
 
@@ -136,6 +156,8 @@ span.onclick = function() {
             modal.style.display = "block";
             modelMsg.innerText = `Game Over! You Lost! The word is ${guessedWord}`
             console.log("You lost")
+            
+            
         }
         
         //Players Wins
@@ -149,43 +171,54 @@ span.onclick = function() {
 
     }
 
+
+
+
     //Function that shows Scarecrow body parts one by one:
     //Note to self: If there's time turn it to switch!
     showScareCrew = () => {
         if (count === 1) {
             stickImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 2){
             bodyImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 3){
             rightArmImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 4){
             leftArmImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 5){
             headImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 6){
             hatImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 7){
             leftSkullImg.style.display = 'block'
+            soundEffects.play()
         }
         else if (count === 8){
             rightSkullImg.style.display = 'block'
+            soundEffects.play()
         }
     }
 
     
 //-------------------------Restarting the game functions:-----------------------------------------------
 
-    //restart all the variables in the game
+    // restart all the variables in the game
     function restartVariables(){
-        let count = 0, countWin = 0
-        let includedLetters = []
-        let stopGame = false
+        count = 0, countWin = 0
+        includedLetters = []
+        stopGame = false
     }
 
     function disableImages(){
@@ -200,24 +233,35 @@ span.onclick = function() {
     }
 
     function clearLetterDivs(){
-        seperatedWord.forEach((letterInWord, index) => {
-          document.getElementById(`${index}`).remove()
-        })
+        gussedLetterDiv.innerHTML = " "
     }
 
+    function generateRandomWordAgain(){
+        generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
+        seperatedWord = generatedWord.split('')
+    }
+    
 
-
+    function changeKeyboredColor(){
+        // letter.target.style.color = 'red'
+    }
 
     playAgain = () => {
-        keybored.removeEventListener('click', compare)
+        modal.style.display = "none";
         restartVariables()
         disableImages()
         clearLetterDivs()
+        generateRandomWordAgain()
         onStartGame()
-        modal.style.display = "none";
+        // changeKeyboredColor()
+        // startingAgain() 
+        // console.log("is it working?")
     }
 
 
 //add event listen to keybored to make the letters clickable.
 keybored.addEventListener('click', compare)
 restartBtn.addEventListener('click', playAgain)
+
+// -----------------------------------------------------------------------------------------------
+
