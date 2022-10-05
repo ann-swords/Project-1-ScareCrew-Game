@@ -1,4 +1,4 @@
-//*Initilizing variables:
+//------------------Initilizing variables:---------------------------------------------------------
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
 //It counts number of times user clicked on wrong button
@@ -12,10 +12,20 @@ console.log(generatedWord)
 let seperatedWord = generatedWord.split('')
 console.log(seperatedWord)
 
-//*Calling the elements:
+//---------------Calling the elements:-------------------------------------
+
 //keybored --> calls the div where the buttons are placed
 let keybored = document.querySelector('.keybored')
 let gussedLetterDiv = document.querySelector('.guessed-word')
+//The Scarecrow body parts Images:
+let stickImg = document.getElementById('scarecrew-stick')
+let bodyImg = document.getElementById('scarecrew-body')
+let rightArmImg = document.getElementById('scarecrew-right-arm')
+let leftArmImg = document.getElementById('scarecrew-left-arm')
+let headImg = document.getElementById('scarecrew-head')
+let hatImg = document.getElementById('scarecrew-hat')
+let rightSkullImg = document.getElementById('scarecrew-skull-right')
+let leftSkullImg = document.getElementById('scarecrew-skull-left')
 
 
 //------------------------------------------------------------------------------------------------------------------
@@ -65,6 +75,9 @@ let gussedLetterDiv = document.querySelector('.guessed-word')
             letter.target.style.color = 'red'
             count++
             console.log(count)
+
+            //function to show sarecrow
+            showScareCrew() 
         }
 
         //player Loses!
@@ -81,8 +94,35 @@ let gussedLetterDiv = document.querySelector('.guessed-word')
         }
         
 
+    }
 
-
+    //Show Scarecrow body parts one by one:
+    showScareCrew = () => {
+        if (count === 1) {
+            stickImg.style.display = 'block'
+        }
+        else if (count === 2){
+            bodyImg.style.display = 'block'
+        }
+        else if (count === 3){
+            rightArmImg.style.display = 'block'
+        }
+        else if (count === 4){
+            leftArmImg.style.display = 'block'
+        }
+        else if (count === 5){
+            headImg.style.display = 'block'
+        }
+        else if (count === 6){
+            hatImg.style.display = 'block'
+        }
+        else if (count === 7){
+            leftSkullImg.style.display = 'block'
+        }
+        else if (count === 8){
+            rightSkullImg.style.display = 'block'
+        }
+        
     }
     
 

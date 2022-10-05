@@ -91,8 +91,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   width: 22%;
   padding: 5px;
   height: 520px; 
-
-  
 }
 
 
@@ -103,33 +101,33 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     height: 80%;
     top: 120px;
     left: 130px;
-    /* display: none; */
+    display: none;
  
 }
 
 #scarecrew-body{
     position: relative;
     width: 60%;
-    bottom: 25px;
-    left: 20px;
-    /* display: none; */
+    bottom: 220px;
+    left: 70px;
+    display: none;
 }
 
 #scarecrew-right-arm{
     position: relative;
     height: 13%;
-    left: 205px;
-    bottom: 200px;
-    /* display: none; */
+    left: 215px;
+    bottom: 380px;
+    display: none;
    
 }
 
 #scarecrew-left-arm{
     position: relative;
     height: 13%;
-    right: 145px;
-    bottom: 200px;
-    /* display: none; */
+    right: 5px;
+    bottom: 447px;
+    display: none;
    
     
 }
@@ -137,36 +135,36 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 #scarecrew-head{
     position: relative;
     height: 20%;
-    bottom: 410px;
+    bottom: 660px;
     left: 70px;
-    /* display: none; */
+    display: none;
     
 }
 
 #scarecrew-hat{
     position: relative;
     height: 16%;
-    bottom: 490px;
-    right: 70px;
-    /* display: none; */
+    bottom: 830px;
+    left: 80px;
+    display: none;
  
 }
 
 #scarecrew-skull-right{
-    position: relative;
+    position: absolute;
     height: 20%;
-    bottom: 350px;
-    left: 6px;
-    /* display: none; */
+    bottom: 170px;
+    left: 20px;
+    display: none;
     
 }
 
 #scarecrew-skull-left{
-    position: relative;
+    position: absolute;
     height: 20%;
-    bottom: 350px;
-    left: 180px;
-    /* display: none; */
+    bottom: 170px;
+    left: 260px;
+    display: none;
     
 }
 
