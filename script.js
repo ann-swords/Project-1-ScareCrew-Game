@@ -1,5 +1,5 @@
 //------------------Initilizing variables:---------------------------------------------------------
-let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
+let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'skull', 'creepy', 'mysterious', 'levitation']
 
 //It counts number of times user clicked on wrong button letter, and right button letter
 let count = 0, countWin = 0, lives = 0
@@ -30,6 +30,7 @@ let rightSkullImg = document.getElementById('scarecrew-skull-right')
 let leftSkullImg = document.getElementById('scarecrew-skull-left')
 // The model elements:
 let modal = document.getElementById("myModal")
+let modalInst = document.getElementById("myModalInst")
 let span = document.getElementsByClassName("close")[0] //Get the <span> element that closes the modal
 let restartBtn = document.getElementById("restart")
 let modelMsg = document.getElementById("model-msg")
@@ -47,14 +48,15 @@ backgroundMusic.volume = 0.1
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  modalInst.style.display = "none";
 }
 
 // // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
+window.onclick = function(event) {
+  if (event.target == modalInst) {
+    modalInst.style.display = "none";
+  }
+}
 //-----------------------------------------------------------------------------------------------------------------
 // //try:
 
@@ -169,11 +171,11 @@ span.onclick = function() {
             // styling
             modelMsg.style.color = ' #6b5b95'
             modal.style.backgroundImage = "url('../Images/win-background.png')"
-            modal.style.backgroundSize =' cover'
-            modal.style.backgroundRepeat = no-'repeat'
+            modal.style.backgroundSize = 'cover'
+            modal.style.backgroundRepeat = 'no-repeat'
             modal.style.backgroundAttachment =' fixed'
             modal.style.backgroundPosition = 'center'
-            modal.style.backgroundColor = 'rgba(0,0,0,0.4)' 
+            modal.style.backgroundColor = 'rgba(0,0,0,0.4)'
             console.log("You won")
         }
         
@@ -279,6 +281,7 @@ span.onclick = function() {
     document.addEventListener('DOMContentLoaded', () =>{
         backgroundMusic.play()
         generateRandomWords()
+        modalInst.style.display = 'block'
         restartBtn.addEventListener('click', playAgain)
 
     })
