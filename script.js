@@ -2,7 +2,7 @@
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
 //It counts number of times user clicked on wrong button letter, and right button letter
-let count = 0, countWin = 0
+let count = 0, countWin = 0, lives = 0
 
 //Generates one random word from the array and turn it to upperCase.
 let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
@@ -86,17 +86,13 @@ span.onclick = function() {
         })
     }
    
-    onStartGame()
+    
     
     //Initilize more variables:
     //array for the clicked letters!
     let includedLetters = []
     //used for stoping the game after lose/win
     let stopGame = false
-
-
-
-
 
     function compare(letter) {
 
@@ -216,7 +212,7 @@ span.onclick = function() {
 
     // restart all the variables in the game
     function restartVariables(){
-        count = 0, countWin = 0
+        count = 0, countWin = 0, lives = 0
         includedLetters = []
         stopGame = false
     }
@@ -230,6 +226,10 @@ span.onclick = function() {
         hatImg.style.display = 'none'
         leftSkullImg.style.display = 'none'
         rightSkullImg.style.display = 'none'
+    }
+
+    function disableMusic(){
+        backgroundMusic.pause()
     }
 
     function clearLetterDivs(){
@@ -250,6 +250,7 @@ span.onclick = function() {
         modal.style.display = "none";
         restartVariables()
         disableImages()
+        disableMusic()
         clearLetterDivs()
         generateRandomWordAgain()
         onStartGame()
@@ -261,7 +262,12 @@ span.onclick = function() {
 
 //add event listen to keybored to make the letters clickable.
 keybored.addEventListener('click', compare)
-restartBtn.addEventListener('click', playAgain)
 
 // -----------------------------------------------------------------------------------------------
 
+document.addEventListener('DOMContentLoaded', () =>{
+    backgroundMusic.play()
+    onStartGame()
+    restartBtn.addEventListener('click', playAgain)
+
+})
