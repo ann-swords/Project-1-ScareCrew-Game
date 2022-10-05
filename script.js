@@ -2,7 +2,7 @@
 let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'cauldron', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'superstition', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'ghastly', 'creepy', 'mysterious', 'levitation']
 
 //It counts number of times user clicked on wrong button
-let count = 0
+let count = 0, countWin = 0
 
 //Generates one random word from the array and turn it to upperCase.
 let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
@@ -49,28 +49,37 @@ let gussedLetterDiv = document.querySelector('.guessed-word')
         seperatedWord.forEach((letterInWord, index) => {
             let wordDiv = document.getElementById(`${index}`)
                
+            //checks if user guessed right letters
             if (letterInWord === alphabet){
                 wordDiv.innerText = alphabet
-                letter.target.style.color = 'green' //Change color to gree when presssed on the right letter.
-            //Add a message that playe has won!
+                letter.target.style.color = 'green' //Change color to green when presssed on the right letter.
+                countWin++
             }
             
         })
+
+
 
         //Checks if user entered a wrong letter
         if (!seperatedWord.includes(alphabet)){
             letter.target.style.color = 'red'
             count++
             console.log(count)
-
         }
 
-        //player Wins!
+        //player Loses!
         if(count === 8){
            alert("YOU LOST LMAO!")
             //message game over!!!!!!!!!!!!
             console.log("game over")
         }
+        
+        //Players Wins
+         if(countWin === seperatedWord.length){
+            let guessedWord = seperatedWord.join('')
+            alert(`YOU Won Congrats :) You guessed the word: ${guessedWord}`)
+        }
+        
 
 
 
