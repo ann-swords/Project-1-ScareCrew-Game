@@ -36,7 +36,6 @@ let modelMsg = document.getElementById("model-msg")
 //------------------------------------------------------------------------------------------------------------------
 
 // ------------------------------------------adding model -------------------------------------
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
@@ -48,36 +47,44 @@ span.onclick = function() {
 //     modal.style.display = "none";
 //   }
 // }
-
 //-----------------------------------------------------------------------------------------------------------------
 
-let stopGame = false
 //Functions:
 
-    //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
-    seperatedWord.forEach((letter, index) =>{
+    function onStartGame(){
+         //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
+        seperatedWord.forEach((letter, index) =>{
         
-            //first generate a new div for each letter
-            let newDivForLetter = document.createElement('div')
-            newDivForLetter.id = `${index}`
-            newDivForLetter.style.margin = '10px'
-            newDivForLetter.style.height = '30px'
-            newDivForLetter.style.width = '30px'
-            newDivForLetter.style.borderBottom = '5px solid white'
-            //Text styling:
-            newDivForLetter.style.fontFamily = "'Press Start 2P', cursive"
-            gussedLetterDiv.appendChild(newDivForLetter)
-    })
+        //first generate a new div for each letter
+        let newDivForLetter = document.createElement('div')
+        newDivForLetter.id = `${index}`
+        newDivForLetter.style.margin = '10px'
+        newDivForLetter.style.height = '30px'
+        newDivForLetter.style.width = '30px'
+        newDivForLetter.style.borderBottom = '5px solid white'
+        //Text styling:
+        newDivForLetter.style.fontFamily = "'Press Start 2P', cursive"
+        gussedLetterDiv.appendChild(newDivForLetter)
+        })
+    }
+   
+    onStartGame()
     
-
-    //returns the clicked letters!
+    //Initilize more variables:
+    //array for the clicked letters!
     let includedLetters = []
+    //used for stoping the game after lose/win
+    let stopGame = false
+
+
+
 
     function compare(letter) {
         //The letter from the user input when they press a button:
         let alphabet = letter.target.innerHTML
 
 
+        //If one of the letters in the array is included, it disable it from clicking again.
         if(includedLetters.includes(alphabet)){
             return 
         }
@@ -97,12 +104,13 @@ let stopGame = false
                 letter.target.style.color = 'green' //Change color to green when presssed on the right letter.
                 countWin++
         
+                //array for the clicked letters!
                 includedLetters.push(alphabet)
                 // console.log(includedLetters)
             }
             else if(!letterInWord.includes(alphabet)){
                 includedLetters.push(alphabet)
-                console.log(includedLetters)
+                // console.log(includedLetters)
             }
             
         })
@@ -126,7 +134,7 @@ let stopGame = false
             // When the user loses, the model wil be opned
             stopGame = true
             modal.style.display = "block";
-            modelMsg.innerText = `Game Over! The word is ${guessedWord}`
+            modelMsg.innerText = `Game Over! You Lost! The word is ${guessedWord}`
             console.log("You lost")
         }
         
@@ -142,6 +150,7 @@ let stopGame = false
     }
 
     //Function that shows Scarecrow body parts one by one:
+    //Note to self: If there's time turn it to switch!
     showScareCrew = () => {
         if (count === 1) {
             stickImg.style.display = 'block'
@@ -169,13 +178,46 @@ let stopGame = false
         }
     }
 
+    
+//-------------------------Restarting the game functions:-----------------------------------------------
+
+    //restart all the variables in the game
+    function restartVariables(){
+        let count = 0, countWin = 0
+        let includedLetters = []
+        let stopGame = false
+    }
+
+    function disableImages(){
+        stickImg.style.display = 'none'
+        bodyImg.style.display = 'none'
+        rightArmImg.style.display = 'none'
+        leftArmImg.style.display = 'none'
+        headImg.style.display = 'none'
+        hatImg.style.display = 'none'
+        leftSkullImg.style.display = 'none'
+        rightSkullImg.style.display = 'none'
+    }
+
+    function clearLetterDivs(){
+        seperatedWord.forEach((letterInWord, index) => {
+          document.getElementById(`${index}`).remove()
+        })
+    }
+
+
+
+
+    playAgain = () => {
+        keybored.removeEventListener('click', compare)
+        restartVariables()
+        disableImages()
+        clearLetterDivs()
+        onStartGame()
+        modal.style.display = "none";
+    }
+
 
 //add event listen to keybored to make the letters clickable.
 keybored.addEventListener('click', compare)
-
-
-//Things to do:
-//compare user input with the exact letter position! --> DONE
-//if true, change alphabet color to green , then disable the button --> DONE
-//if false, change alphabet color to red, then show one scarecrow part, and disable button. -->  DONE :)
-
+restartBtn.addEventListener('click', playAgain)
