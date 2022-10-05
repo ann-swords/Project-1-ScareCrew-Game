@@ -67,7 +67,7 @@ span.onclick = function() {
 //Functions:
 
 
-    function onStartGame(){
+    function generateRandomWords(){
         // backgroundMusic.play()
          //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
         seperatedWord.forEach((letter, index) =>{
@@ -151,23 +151,22 @@ span.onclick = function() {
             stopGame = true
             modal.style.display = "block";
             modelMsg.innerText = `Game Over! You Lost! The word is ${guessedWord}`
+            modal.style.backgroundImage = "url('../Images/jumpScare.jpg')"
             console.log("You lost")
-            
-            
+            backgroundMusic.pause()
         }
         
         //Players Wins
         if(countWin === seperatedWord.length){
             stopGame = true
             modal.style.display = "block";
-            modelMsg.innerText = `You Won! The word is ${guessedWord}`
+            modelMsg.innerHTML = `You Won! The word is \n ${guessedWord}`
+
             console.log("You won")
         }
         
 
     }
-
-
 
 
     //Function that shows Scarecrow body parts one by one:
@@ -210,7 +209,7 @@ span.onclick = function() {
     
 //-------------------------Restarting the game functions:-----------------------------------------------
 
-    // restart all the variables in the game
+    // restart all the variables, images, colors in the game, and adding new words!
     function restartVariables(){
         count = 0, countWin = 0, lives = 0
         includedLetters = []
@@ -228,9 +227,6 @@ span.onclick = function() {
         rightSkullImg.style.display = 'none'
     }
 
-    function disableMusic(){
-        backgroundMusic.pause()
-    }
 
     function clearLetterDivs(){
         gussedLetterDiv.innerHTML = " "
@@ -239,35 +235,37 @@ span.onclick = function() {
     function generateRandomWordAgain(){
         generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
         seperatedWord = generatedWord.split('')
+        console.log(generatedWord)
     }
     
 
     function changeKeyboredColor(){
-        // letter.target.style.color = 'red'
+        btnLetters.forEach((letter)=>{
+            letter.style.color = 'white'
+        })
     }
 
     playAgain = () => {
         modal.style.display = "none";
         restartVariables()
         disableImages()
-        disableMusic()
         clearLetterDivs()
         generateRandomWordAgain()
-        onStartGame()
-        // changeKeyboredColor()
+        generateRandomWords()
+        changeKeyboredColor()
         // startingAgain() 
         // console.log("is it working?")
     }
 
 
-//add event listen to keybored to make the letters clickable.
-keybored.addEventListener('click', compare)
+    //add event listen to keybored to make the letters clickable.
+    keybored.addEventListener('click', compare)
 
 // -----------------------------------------------------------------------------------------------
+    //Everytime the page loads:
+    document.addEventListener('DOMContentLoaded', () =>{
+        backgroundMusic.play()
+        generateRandomWords()
+        restartBtn.addEventListener('click', playAgain)
 
-document.addEventListener('DOMContentLoaded', () =>{
-    backgroundMusic.play()
-    onStartGame()
-    restartBtn.addEventListener('click', playAgain)
-
-})
+    })
