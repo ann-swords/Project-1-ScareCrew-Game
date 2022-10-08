@@ -36,10 +36,12 @@ let restartBtn = document.getElementById("restart")
 let modelMsg = document.getElementById("model-msg")
 //Music elements:
 let soundEffects = new Audio('../music/sound-effect.mp3')
-let backgroundMusic = new Audio('../music/haunted-house.mp3')
+// let backgroundMusic = new Audio('../music/haunted-house.mp3')
+let backgroundMusic2 = new Audio('../music/ghostMusic.mp3')
 let loseMusic = new Audio('../music/boo-and-laugh.mp3')
+let winSound = new Audio('../music/winSound.mp3')
 soundEffects.volume = 0.12
-backgroundMusic.volume = 0.1
+backgroundMusic2.volume = 0.1
 
 
 //------------------------------------------------------------------------------------------------------------------
@@ -70,9 +72,8 @@ window.onclick = function(event) {
 //Functions:
 
 
+    //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
     function generateRandomWords(){
-        // backgroundMusic.play()
-         //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
         seperatedWord.forEach((letter, index) =>{
         
         //first generate a new div for each letter
@@ -98,7 +99,6 @@ window.onclick = function(event) {
     let stopGame = false
 
     function compare(letter) {
-
         //The letter from the user input when they press a button:
         let alphabet = letter.target.innerHTML
 
@@ -153,8 +153,8 @@ window.onclick = function(event) {
             // When the user loses, the model wil be opned
             stopGame = true
             loseMusic.play()
+            backgroundMusic2.pause()
             modal.style.display = "block";
-            backgroundMusic.pause()
             modelMsg.innerText = `Game Over! You Lost! The word is \n ${guessedWord}`
             //styling
             modelMsg.style.color = 'rgba(133, 21, 21, 0.895)'
@@ -165,7 +165,8 @@ window.onclick = function(event) {
         //Players Wins
         if(countWin === seperatedWord.length){
             stopGame = true
-            backgroundMusic.pause()
+            winSound.play()
+            backgroundMusic2.pause()
             modal.style.display = "block";
             modelMsg.innerHTML = `Congrats! You Won! You guessed \n ${guessedWord}`
             // styling
@@ -227,6 +228,7 @@ window.onclick = function(event) {
         btnLetters.forEach((e)=>{
             e.addEventListener('click', compare)
         })
+        backgroundMusic2.play()
     }
 
 
@@ -270,7 +272,7 @@ window.onclick = function(event) {
 
     playAgain = () => {
         modal.style.display = "none";
-        backgroundMusic.play()
+        backgroundMusic2.play()
         restartVariables()
         disableImages()
         clearLetterDivs()
@@ -283,13 +285,12 @@ window.onclick = function(event) {
 
 
     // //add event listen to keybored to make the letters clickable.
+    //The old way--> not good cuz anywhere on the keybored div is clickable 
     // keybored.addEventListener('click', compare)
 
-// -----------------------------------------------------------------------------------------------
-    //Everytime the page loads:
+// -----------------------------------Everytime the page loads:-----------------------------------------
     document.addEventListener('DOMContentLoaded', () =>{
         onStartGame()
-        backgroundMusic.play()
         generateRandomWords()
         modalInst.style.display = 'block'
         restartBtn.addEventListener('click', playAgain)
