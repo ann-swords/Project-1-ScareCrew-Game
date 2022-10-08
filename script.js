@@ -10,7 +10,7 @@ console.log(generatedWord)
 
 //Split the word into letters and store it in an array.
 let seperatedWord = generatedWord.split('')
-console.log(seperatedWord)
+// console.log(seperatedWord)
 
 //---------------Calling the elements:-------------------------------------
 
@@ -18,6 +18,9 @@ console.log(seperatedWord)
 let keybored = document.querySelector('.keybored')
 //btnLetters --> calls each button
 let btnLetters = document.querySelectorAll('.btn')
+//hint Button
+let hintBtn = document.getElementById('hint')
+let hintText = document.getElementById('hintDiv')
 let gussedLetterDiv = document.querySelector('.guessed-word')
 //The Scarecrow body parts Images:
 let stickImg = document.getElementById('scarecrew-stick')
@@ -42,6 +45,7 @@ let loseMusic = new Audio('../music/boo-and-laugh.mp3')
 let winSound = new Audio('../music/winSound.mp3')
 soundEffects.volume = 0.12
 backgroundMusic2.volume = 0.1
+backgroundMusic2.loop = true
 
 
 //------------------------------------------------------------------------------------------------------------------
@@ -94,7 +98,7 @@ window.onclick = function(event) {
     
     //Initilize more variables:
     //array for the clicked letters!
-    let includedLetters = []
+    let includedLetters = [],  hintWord = [],  letterHint =''
     //used for stoping the game after lose/win
     let stopGame = false
 
@@ -107,6 +111,7 @@ window.onclick = function(event) {
         if(includedLetters.includes(alphabet)){
             return 
         }
+
 
         //Disables clicking on the keybored after game is ended!
         if(stopGame){
@@ -221,7 +226,24 @@ window.onclick = function(event) {
         }
     }
 
+
     
+    function hint(){
+        if(hintWord.includes(letterHint)){
+            hintBtn.style.cursor = 'not-allowed'   
+            return   
+        }
+
+        letterHint = seperatedWord[Math.floor(Math.random() * seperatedWord.length)]
+        hintWord.push(letterHint)
+        // console.log(hintWord)
+        hintText.innerHTML= letterHint
+        hintDiv.style.display = 'block'
+        
+    }
+    
+    
+
 
     //add event listen to keybored to make the letters clickable.
     function onStartGame(){
@@ -237,8 +259,9 @@ window.onclick = function(event) {
     // restart all the variables, images, colors in the game, and adding new words!
     function restartVariables(){
         count = 0, countWin = 0, lives = 0
-        includedLetters = []
+        includedLetters = [], hintWord = []
         stopGame = false
+        letterHint =''
     }
 
     function disableImages(){
@@ -255,6 +278,10 @@ window.onclick = function(event) {
 
     function clearLetterDivs(){
         gussedLetterDiv.innerHTML = " "
+        //Hint elements:
+        hintText.innerHTML= " "
+        hintDiv.style.display = 'none' 
+        hintBtn.style.cursor = 'pointer'  
     }
 
     function generateRandomWordAgain(){
@@ -294,5 +321,6 @@ window.onclick = function(event) {
         generateRandomWords()
         modalInst.style.display = 'block'
         restartBtn.addEventListener('click', playAgain)
+        hintBtn.addEventListener('click', hint)
 
     })

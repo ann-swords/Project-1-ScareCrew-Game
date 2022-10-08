@@ -295,3 +295,48 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     font-family: 'Press Start 2P', cursive;
     margin-top: 10%;
 }
+
+
+/* Hint button */
+.hint{
+    float: right;
+    margin: 10px;
+
+}
+#hint{
+
+    background-image: url('../Images/letter box.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+
+    width: 55px;
+    height: 55px;
+    margin: 3px;
+
+    cursor: pointer;
+}
+
+#hintDiv{
+    height: 58px;
+    width: 58px;
+    margin: 3px;
+    
+    background-color: rgba(68, 71, 81, 0.737);
+    box-shadow: rgb(244, 148, 30) 0px 2px 15px;
+
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: 58px; 
+    display: none;
+    
+}
+
