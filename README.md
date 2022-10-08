@@ -18,11 +18,14 @@ An array of random Halloween related words was created, **Math.random()** was us
 * **compare()** takes the letter that the user clicked and compare it to the array of splitted letters.
 * **showScareCrew()** displays the scarecrow body parts each time the player guesses a wrong letter.
 
-
-
-
-
-
+To restrat the game:
+* **restartVariables()** 
+* **disableImages()** 
+* **restartVariables()** 
+* **clearLetterDivs()** 
+* **generateRandomWordAgain()** 
+* **changeKeyboredColor()** 
+* **playAgain()** when the player clicks on thr play again buttton, the funcion will call the above functions to set a new round of game.
 
 
 

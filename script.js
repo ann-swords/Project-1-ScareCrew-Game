@@ -47,14 +47,14 @@ backgroundMusic.volume = 0.1
 // ------------------------------------------adding model -------------------------------------
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
-  modalInst.style.display = "none";
+  modal.style.display = "none"
+  modalInst.style.display = "none"
 }
 
 // // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modalInst) {
-    modalInst.style.display = "none";
+    modalInst.style.display = "none"
   }
 }
 //-----------------------------------------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ window.onclick = function(event) {
         if (!seperatedWord.includes(alphabet)){
             letter.target.style.color = 'red'
             count++
-            console.log(count)
+            // console.log(count)
 
             //function to show sarecrow
             showScareCrew()
@@ -169,7 +169,7 @@ window.onclick = function(event) {
             modal.style.display = "block";
             modelMsg.innerHTML = `Congrats! You Won! You guessed \n ${guessedWord}`
             // styling
-            modelMsg.style.color = ' #6b5b95'
+            modelMsg.style.color = '#6b5b95'
             modal.style.backgroundImage = "url('../Images/win-background.png')"
             modal.style.backgroundSize = 'cover'
             modal.style.backgroundRepeat = 'no-repeat'
@@ -221,6 +221,15 @@ window.onclick = function(event) {
     }
 
     
+
+    //add event listen to keybored to make the letters clickable.
+    function onStartGame(){
+        btnLetters.forEach((e)=>{
+            e.addEventListener('click', compare)
+        })
+    }
+
+
 //-------------------------Restarting the game functions:-----------------------------------------------
 
     // restart all the variables, images, colors in the game, and adding new words!
@@ -262,23 +271,24 @@ window.onclick = function(event) {
     playAgain = () => {
         modal.style.display = "none";
         backgroundMusic.play()
-        loseMusic.pause()
         restartVariables()
         disableImages()
         clearLetterDivs()
         generateRandomWordAgain()
         generateRandomWords()
         changeKeyboredColor() 
+        onStartGame()
         // console.log("is it working?")
     }
 
 
-    //add event listen to keybored to make the letters clickable.
-    keybored.addEventListener('click', compare)
+    // //add event listen to keybored to make the letters clickable.
+    // keybored.addEventListener('click', compare)
 
 // -----------------------------------------------------------------------------------------------
     //Everytime the page loads:
     document.addEventListener('DOMContentLoaded', () =>{
+        onStartGame()
         backgroundMusic.play()
         generateRandomWords()
         modalInst.style.display = 'block'
