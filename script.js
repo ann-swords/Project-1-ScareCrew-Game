@@ -1,68 +1,68 @@
 //------------------Initilizing variables:---------------------------------------------------------
-let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'skull', 'creepy', 'mysterious', 'levitation']
+    let randomWords = ['Halloween', 'October', 'pumpkin', 'afraid', 'evil', 'eerie', 'gruesome', 'spooky', 'broomstick', 'witch', 'ghost', 'nightmare', 'frightening', 'scary', 'darkness', 'horrify', 'disguise', 'petrify', 'terrify', 'tombstone', 'cobweb', 'cemetery', 'ghoulish', 'dead', 'haunt', 'howl', 'candy', 'supernatural', 'cackle', 'chilling', 'lantern', 'monster', 'moonlight', 'scream', 'grave', 'vampire', 'costume', 'flashlight', 'frightful', 'wicked', 'zombie', 'night', 'skull', 'creepy', 'mysterious', 'levitation']
 
-//It counts number of times user clicked on wrong button letter, and right button letter
-let count = 0, countWin = 0, lives = 0
+    //It counts number of times user clicked on wrong button letter, and right button letter
+    let count = 0, countWin = 0, lives = 0
 
-//Generates one random word from the array and turn it to upperCase.
-let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
-console.log(generatedWord)
+    //Generates one random word from the array and turn it to upperCase.
+    let generatedWord = randomWords[Math.floor(Math.random() * randomWords.length)].toUpperCase()
+    console.log(generatedWord)
 
-//Split the word into letters and store it in an array.
-let seperatedWord = generatedWord.split('')
-// console.log(seperatedWord)
+    //Split the word into letters and store it in an array.
+    let seperatedWord = generatedWord.split('')
+    // console.log(seperatedWord)
 
 //---------------Calling the elements:-------------------------------------
 
-//keybored --> calls the div where the buttons are placed
-let keybored = document.querySelector('.keybored')
-//btnLetters --> calls each button
-let btnLetters = document.querySelectorAll('.btn')
-//hint Button
-let hintBtn = document.getElementById('hint')
-let hintText = document.getElementById('hintDiv')
-let gussedLetterDiv = document.querySelector('.guessed-word')
-//The Scarecrow body parts Images:
-let stickImg = document.getElementById('scarecrew-stick')
-let bodyImg = document.getElementById('scarecrew-body')
-let rightArmImg = document.getElementById('scarecrew-right-arm')
-let leftArmImg = document.getElementById('scarecrew-left-arm')
-let headImg = document.getElementById('scarecrew-head')
-let hatImg = document.getElementById('scarecrew-hat')
-let rightSkullImg = document.getElementById('scarecrew-skull-right')
-let leftSkullImg = document.getElementById('scarecrew-skull-left')
-// The model elements:
-let modal = document.getElementById("myModal")
-let modalInst = document.getElementById("myModalInst")
-let span = document.getElementsByClassName("close")[0] //Get the <span> element that closes the modal
-let restartBtn = document.getElementById("restart")
-let modelMsg = document.getElementById("model-msg")
-//Music elements:
-let soundEffects = new Audio('../music/sound-effect.mp3')
-// let backgroundMusic = new Audio('../music/haunted-house.mp3')
-let backgroundMusic2 = new Audio('../music/ghostMusic.mp3')
-let loseMusic = new Audio('../music/boo-and-laugh.mp3')
-let winSound = new Audio('../music/winSound.mp3')
-soundEffects.volume = 0.12
-backgroundMusic2.volume = 0.1
-backgroundMusic2.loop = true
+    //keybored --> calls the div where the buttons are placed
+    let keybored = document.querySelector('.keybored')
+    //btnLetters --> calls each button
+    let btnLetters = document.querySelectorAll('.btn')
+    //hint Button
+    let hintBtn = document.getElementById('hint')
+    let hintText = document.getElementById('hintDiv')
+    let gussedLetterDiv = document.querySelector('.guessed-word')
+    //The Scarecrow body parts Images:
+    let stickImg = document.getElementById('scarecrew-stick')
+    let bodyImg = document.getElementById('scarecrew-body')
+    let rightArmImg = document.getElementById('scarecrew-right-arm')
+    let leftArmImg = document.getElementById('scarecrew-left-arm')
+    let headImg = document.getElementById('scarecrew-head')
+    let hatImg = document.getElementById('scarecrew-hat')
+    let rightSkullImg = document.getElementById('scarecrew-skull-right')
+    let leftSkullImg = document.getElementById('scarecrew-skull-left')
+    // The model elements:
+    let modal = document.getElementById("myModal")
+    let modalInst = document.getElementById("myModalInst")
+    let span = document.getElementsByClassName("close")[0] //Get the <span> element that closes the modal
+    let restartBtn = document.getElementById("restart")
+    let modelMsg = document.getElementById("model-msg")
+    //Music elements:
+    let soundEffects = new Audio('../music/sound-effect.mp3')
+    // let backgroundMusic = new Audio('../music/haunted-house.mp3')
+    let backgroundMusic2 = new Audio('../music/ghostMusic.mp3')
+    let loseMusic = new Audio('../music/boo-and-laugh.mp3')
+    let winSound = new Audio('../music/winSound.mp3')
+    soundEffects.volume = 0.12
+    backgroundMusic2.volume = 0.1
+    backgroundMusic2.loop = true
 
 
 //------------------------------------------------------------------------------------------------------------------
 
-// ------------------------------------------adding model -------------------------------------
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none"
-  modalInst.style.display = "none"
-}
-
-// // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modalInst) {
+// ------------------------------------------adding model --------------------------------------------------------
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none"
     modalInst.style.display = "none"
-  }
-}
+    }
+
+    // // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modalInst) {
+        modalInst.style.display = "none"
+    }
+    }
 //-----------------------------------------------------------------------------------------------------------------
 // //try:
 
@@ -72,8 +72,7 @@ window.onclick = function(event) {
 // }
 
 
-//-----------------------------------------------------
-//Functions:
+//-----------------------------------------------------Functions:-------------------------------------------------
 
 
     //Function that adds 'the random' generated word on the screen as lines(_ _ _ _)
