@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking the css and javascript -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Adding Icon to the website -->
+    <link href="icon.ico" rel="icon" type="image/x-icon" />
+    <script defer src="script.js"></script>
 
-  <!-- Linking the css and javascript -->
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <!-- Adding Icon to the website -->
-  <link href="icon.ico" rel="icon" type="image/x-icon" />
-  <script defer src="script.js"></script>
+    <title>Scarecrow Game</title>
+  </head>
+  <!-- <embed src="/music/Day6-You-Make-Me.mp3" loop="true" autostart="true" width="2" height="0"> -->
 
-  <title>Scarecrow Game</title>
+  <body>
+    <div class="hint">
+      <button id="hint">Hint</button>
 
-</head>
-<!-- <embed src="/music/Day6-You-Make-Me.mp3" loop="true" autostart="true" width="2" height="0"> -->
-
-
-
-<body>
-
-  <div class="hint">
-    <button id="hint">Hint</button>
-
-    <div id="hintDiv">
-
+      <div id="hintDiv"></div>
     </div>
-  </div>
 
+    <div id="p-game-title">
+      <p>The Scarecrow Game</p>
+    </div>
 
-  <div id="p-game-title">
-    <p>The Scarecrow Game</p>
-  </div>
-
-
-  <!-- The Image of the Scarecrow -->
-  <div class="scarecrow-div">
-
+    <!-- The Image of the Scarecrow -->
+    <div class="scarecrow-div">
+      <!--
     <img src="../Images/stick.png" alt="Scarecrow stick" id="scarecrew-stick">
     <img src="../Images/body.png" alt="Scarecrow body" id="scarecrew-body">
     <img src="../Images/right arm.png" alt="Scarecrow right arm" id="scarecrew-right-arm">
@@ -47,95 +41,122 @@
     <img src="../Images/hat.png" alt="Scarecrow hat" id="scarecrew-hat">
     <img src="../Images/skull-right.png" alt="Scarecrow skull right" id="scarecrew-skull-right">
     <img src="../Images/skull-left.png" alt="Scarecrow skull left" id="scarecrew-skull-left">
+-->
 
-  </div>
-
-
-
-  <!-- It will include many divs based on the word to be guessed-->
-  <div class="guessed-word" id="col2">
-
-  </div>
-
-
-  <!-- The letters on screen -->
-  <div class="keybored">
-
-    <div class="frist-row-letters">
-      <button class="btn">A</button>
-      <button class="btn">B</button>
-      <button class="btn">C</button>
-      <button class="btn">D</button>
-      <button class="btn">E</button>
-      <button class="btn">F</button>
-      <button class="btn">G</button>
-      <button class="btn">H</button>
-      <button class="btn">I</button>
-      <button class="btn">J</button>
+      <img
+        src="https://i.imgur.com/cAVq9zx.png"
+        alt="Scarecrow stick"
+        id="scarecrew-stick"
+      />
+      <img
+        src="https://i.imgur.com/7uzIDCd.png"
+        alt="Scarecrow body"
+        id="scarecrew-body"
+      />
+      <img
+        src="https://i.imgur.com/mMwzOS2.png"
+        alt="Scarecrow right arm"
+        id="scarecrew-right-arm"
+      />
+      <img
+        src="https://i.imgur.com/9vOREo1.png"
+        alt="Scarecrow left arm"
+        id="scarecrew-left-arm"
+      />
+      <img
+        src="https://i.imgur.com/nQSz6ZQ.png"
+        alt="Scarecrow head"
+        id="scarecrew-head"
+      />
+      <img
+        src="https://i.imgur.com/FrXNump.png"
+        alt="Scarecrow hat"
+        id="scarecrew-hat"
+      />
+      <img
+        src="https://i.imgur.com/mIO9bgh.png"
+        alt="Scarecrow skull right"
+        id="scarecrew-skull-right"
+      />
+      <img
+        src="https://i.imgur.com/6uZi5Ha.png"
+        alt="Scarecrow skull left"
+        id="scarecrew-skull-left"
+      />
     </div>
 
+    <!-- It will include many divs based on the word to be guessed-->
+    <div class="guessed-word" id="col2"></div>
 
-    <div class="second-row-letters">
-      <button class="btn">K</button>
-      <button class="btn">L</button>
-      <button class="btn">M</button>
-      <button class="btn">N</button>
-      <button class="btn">O</button>
-      <button class="btn">P</button>
-      <button class="btn">Q</button>
-      <button class="btn">R</button>
-      <button class="btn">S</button>
+    <!-- The letters on screen -->
+    <div class="keybored">
+      <div class="frist-row-letters">
+        <button class="btn">A</button>
+        <button class="btn">B</button>
+        <button class="btn">C</button>
+        <button class="btn">D</button>
+        <button class="btn">E</button>
+        <button class="btn">F</button>
+        <button class="btn">G</button>
+        <button class="btn">H</button>
+        <button class="btn">I</button>
+        <button class="btn">J</button>
+      </div>
+
+      <div class="second-row-letters">
+        <button class="btn">K</button>
+        <button class="btn">L</button>
+        <button class="btn">M</button>
+        <button class="btn">N</button>
+        <button class="btn">O</button>
+        <button class="btn">P</button>
+        <button class="btn">Q</button>
+        <button class="btn">R</button>
+        <button class="btn">S</button>
+      </div>
+
+      <div class="third-row-letters">
+        <button class="btn">T</button>
+        <button class="btn">U</button>
+        <button class="btn">V</button>
+        <button class="btn">W</button>
+        <button class="btn">X</button>
+        <button class="btn">Y</button>
+        <button class="btn">Z</button>
+      </div>
     </div>
 
-    <div class="third-row-letters">
-      <button class="btn">T</button>
-      <button class="btn">U</button>
-      <button class="btn">V</button>
-      <button class="btn">W</button>
-      <button class="btn">X</button>
-      <button class="btn">Y</button>
-      <button class="btn">Z</button>
+    <!-- Moodel Box to restart the game: -->
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal Start Game:-->
+
+    <div id="myModalInst" class="modalInst">
+      <!-- Modal content -->
+      <div class="modal-content-inst">
+        <span class="close">&times;</span>
+        <p class="model-msg-inst">Welcome to the Scarecrow game!</p>
+        <p class="model-msg-inst1">Game Instructions:</p>
+        <p class="model-msg-inst1">
+          Guess the Halloween related word by choosing a letter from screen.
+        </p>
+        <p class="model-msg-inst1">
+          You have only 8 chances to guess! <br /><br /><br />
+          Good luck!!
+        </p>
+        <p class="model-msg-inst2">TW: Jumpscare when u lose...</p>
+      </div>
     </div>
 
-  </div>
-
-
-  <!-- Moodel Box to restart the game: -->
-  <!-- Trigger/Open The Modal -->
-  <!-- <button id="myBtn">Open Modal</button> -->
-
-  <!-- The Modal Start Game:-->
-
-  <div id="myModalInst" class="modalInst">
-
-    <!-- Modal content -->
-    <div class="modal-content-inst">
-      <span class="close">&times;</span>
-      <p class="model-msg-inst">Welcome to the Scarecrow game! </p>
-      <p class="model-msg-inst1">Game Instructions: </p>
-      <p class="model-msg-inst1">Guess the Halloween related word by choosing a letter from screen.</p>
-      <p class="model-msg-inst1">You have only 8 chances to guess! <br><br><br> Good luck!!</p>
-      <p class="model-msg-inst2">TW: Jumpscare when u lose...</p>
+    <!-- The Modal Start Lose/Win:-->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="model-msg"></p>
+        <button id="restart">Play Again?</button>
+      </div>
     </div>
-
-  </div>
-
-
-  <!-- The Modal Start Lose/Win:-->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p id="model-msg"></p>
-      <button id="restart">Play Again?</button>
-    </div>
-
-  </div>
-
-
-
-</body>
-
-
+  </body>
 </html>

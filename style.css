@@ -1,342 +1,320 @@
-body{
-    background-image: url('../Images/Picture3.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: white;
+body {
+  background-image: url("https://i.imgur.com/Y2gzc7X.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
 }
-html, body {margin: 0; height: 100%; overflow: hidden}
-
-
-#p-game-title{
-    display: inline-block;
-    font-family: 'Creepster', cursive;                                   
-    font-size: 50px;
-    color: #E79C21;
-    padding-left: 10%;
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-.guessed-word{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#p-game-title {
+  display: inline-block;
+  font-family: "Creepster", cursive;
+  font-size: 50px;
+  color: #e79c21;
+  padding-left: 10%;
 }
 
-
-.actual-letter{
- /* text */
- color: white;
- font-family: 'Press Start 2P', cursive;
- font-size: 20px;
- margin-top: auto;
+.guessed-word {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-
-#col2{
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 20px;
+.actual-letter {
+  /* text */
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  margin-top: auto;
 }
 
+#col2 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 20px;
+}
 
 /* ----------Keybored on Screen Buttons--------------- */
-.keybored{
-    position: absolute;
-    display: inline-block;
-    right: 27%;
-    top: 60%;
-    padding: 25px;
+.keybored {
+  position: absolute;
+  display: inline-block;
+  right: 27%;
+  top: 60%;
+  padding: 25px;
 }
 
-.frist-row-letters{
-    display: flex;
-    align-items: center;
+.frist-row-letters {
+  display: flex;
+  align-items: center;
 }
 
-.second-row-letters{
-    margin-left: 20px;
+.second-row-letters {
+  margin-left: 20px;
 }
 
-.third-row-letters{
-    margin-left: 80px;
+.third-row-letters {
+  margin-left: 80px;
 }
 
-.btn{
-    /* Background */
-    background-image: url('../Images/letter box.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* cursor: pointer; */
-    /* Size */
-    width: 55px;
-    height: 55px;
-    margin: 2px;
-    
-    /* Text */
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 25px
-    
+.btn {
+  /* Background */
+  background-image: url("https://i.imgur.com/Z5pX7HP.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* cursor: pointer; */
+  /* Size */
+  width: 55px;
+  height: 55px;
+  margin: 2px;
+
+  /* Text */
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  font-size: 25px;
 }
-
-
 
 /* -------------Scarecrew Image div---------*/
 
-.scarecrow-div{
+.scarecrow-div {
   float: left;
   width: 22%;
   padding: 5px;
-  height: 520px; 
+  height: 520px;
 }
-
 
 /* Scarecrew Images: */
 
-#scarecrew-stick{
-    position: relative;
-    height: 80%;
-    top: 120px;
-    left: 130px;
-    display: none;
- 
+#scarecrew-stick {
+  position: relative;
+  height: 80%;
+  top: 120px;
+  left: 130px;
+  display: none;
 }
 
-#scarecrew-body{
-    position: relative;
-    width: 60%;
-    bottom: 220px;
-    left: 70px;
-    display: none;
+#scarecrew-body {
+  position: relative;
+  width: 60%;
+  bottom: 220px;
+  left: 70px;
+  display: none;
 }
 
-#scarecrew-right-arm{
-    position: relative;
-    height: 13%;
-    left: 215px;
-    bottom: 380px;
-    display: none;
-   
+#scarecrew-right-arm {
+  position: relative;
+  height: 13%;
+  left: 215px;
+  bottom: 380px;
+  display: none;
 }
 
-#scarecrew-left-arm{
-    position: relative;
-    height: 13%;
-    right: 5px;
-    bottom: 447px;
-    display: none;
-   
-    
+#scarecrew-left-arm {
+  position: relative;
+  height: 13%;
+  right: 5px;
+  bottom: 447px;
+  display: none;
 }
 
-#scarecrew-head{
-    position: relative;
-    height: 20%;
-    bottom: 660px;
-    left: 70px;
-    display: none;
-    
+#scarecrew-head {
+  position: relative;
+  height: 20%;
+  bottom: 660px;
+  left: 70px;
+  display: none;
 }
 
-#scarecrew-hat{
-    position: relative;
-    height: 16%;
-    bottom: 830px;
-    left: 80px;
-    display: none;
- 
+#scarecrew-hat {
+  position: relative;
+  height: 16%;
+  bottom: 830px;
+  left: 80px;
+  display: none;
 }
 
-#scarecrew-skull-right{
-    position: absolute;
-    height: 20%;
-    bottom: 170px;
-    left: 20px;
-    display: none;
-    
+#scarecrew-skull-right {
+  position: absolute;
+  height: 20%;
+  bottom: 170px;
+  left: 20px;
+  display: none;
 }
 
-#scarecrew-skull-left{
-    position: absolute;
-    height: 20%;
-    bottom: 170px;
-    left: 260px;
-    display: none;
-    
+#scarecrew-skull-left {
+  position: absolute;
+  height: 20%;
+  bottom: 170px;
+  left: 260px;
+  display: none;
 }
-
 
 /* ---------------MODEL----------------------------------------------------------------- */
 /*---------------------The Modal win-lose-------------------------------------*/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */   
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-    
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: rgb(0, 0, 0);
-    margin: 12% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 35%; /* Could be more or less, depending on screen size */
-    height: 35%;
-    /* text */
-    font-family: 'Creepster', cursive;  
-    color: white;
-    
-  }
-  
-  /* The Close window */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: rgb(183, 0, 0);
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-#model-msg{
-    color: rgba(133, 21, 21, 0.895);
-    font-size: 35px;
-    text-align: center;
+/* Modal Content/Box */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.653);
+  margin: 12% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35%; /* Could be more or less, depending on screen size */
+  height: 35%;
+  /* text */
+  font-family: "Creepster", cursive;
+  color: white;
+}
+
+/* The Close window */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(183, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#model-msg {
+  color: rgba(133, 21, 21, 0.895);
+  font-size: 35px;
+  text-align: center;
 }
 
 /* Play again Button */
-#restart{
-    font-family: 'Press Start 2P', cursive;
-    margin-left: 30%; 
-    cursor: pointer;
-    padding: 10px;
+#restart {
+  font-family: "Press Start 2P", cursive;
+  margin-left: 30%;
+  cursor: pointer;
+  padding: 10px;
 }
 
 #restart:hover,
-#restart:focus{
-    background-color: rgba(111, 0, 0, 0.886);
-    color: white;
+#restart:focus {
+  background-color: rgba(111, 0, 0, 0.886);
+  color: white;
 }
 
 /* -------------The Modal start game--------------------- */
 .modalInst {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */   
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0, 0, 0, 0.635); 
-    
-  }
-  
-  /* Modal Content/Box */
-  .modal-content-inst{
-    background-color: rgb(0, 0, 0);
-    margin: 10% auto; /* 15% from the top and centered */
-    padding: 15px;
-    border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
-    height: 50%;
-    /* text */
-    font-family: 'Creepster', cursive;  
-    color: white;
-    
-  }
-  
-  /* The Close window */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: rgb(183, 0, 0);
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-.model-msg-inst{
-    color: rgba(255, 124, 43, 0.895);
-    font-size: 25px;
-    text-align: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.635);
 }
 
-.model-msg-inst1{
-    color: rgba(255, 212, 185, 0.895);
-    font-size: 15px;
-    font-family: 'Press Start 2P', cursive;
-    
-}
-.model-msg-inst2{
-    color: rgba(229, 255, 0, 0.895);
-    font-size: 10px;
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 10%;
+/* Modal Content/Box */
+.modal-content-inst {
+  background-color: rgb(0, 0, 0);
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 15px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  height: 50%;
+  /* text */
+  font-family: "Creepster", cursive;
+  color: white;
 }
 
+/* The Close window */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(183, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.model-msg-inst {
+  color: rgba(255, 124, 43, 0.895);
+  font-size: 25px;
+  text-align: center;
+}
+
+.model-msg-inst1 {
+  color: rgba(255, 212, 185, 0.895);
+  font-size: 15px;
+  font-family: "Press Start 2P", cursive;
+}
+.model-msg-inst2 {
+  color: rgba(229, 255, 0, 0.895);
+  font-size: 10px;
+  font-family: "Press Start 2P", cursive;
+  margin-top: 10%;
+}
 
 /* Hint button */
-.hint{
-    float: right;
-    margin: 10px;
-
+.hint {
+  float: right;
+  margin: 10px;
 }
-#hint{
+#hint {
+  background-image: url("https://i.imgur.com/Z5pX7HP.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
-    background-image: url('../Images/letter box.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
 
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
+  width: 55px;
+  height: 55px;
+  margin: 3px;
 
-    width: 55px;
-    height: 55px;
-    margin: 3px;
-
-    cursor: pointer;
+  cursor: pointer;
 }
 
-#hintDiv{
-    height: 58px;
-    width: 58px;
-    margin: 3px;
-    
-    background-color: rgba(68, 71, 81, 0.737);
-    box-shadow: rgb(244, 148, 30) 0px 2px 15px;
+#hintDiv {
+  height: 58px;
+  width: 58px;
+  margin: 3px;
 
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    
-    text-align: center;
-    vertical-align: middle;
-    line-height: 58px; 
-    display: none;
-    
+  background-color: rgba(68, 71, 81, 0.737);
+  box-shadow: rgb(244, 148, 30) 0px 2px 15px;
+
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+
+  text-align: center;
+  vertical-align: middle;
+  line-height: 58px;
+  display: none;
 }
-
